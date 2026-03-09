@@ -240,27 +240,27 @@ transform:scale(1.05);
 .scroll{
 
 background:#fff8dc;
+
 color:#333;
 
 padding:25px;
 
 border-radius:10px;
 
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
-
-max-height:0;
-overflow:hidden;
-
-transition:max-height 1s ease;
-
 margin-top:20px;
+
+transform:scaleY(0);
+
+transform-origin:top;
+
+transition:transform 0.8s ease;
 
 }
 
-/* scroll open animation */
+/* scroll open */
 
-.card.open .scroll{
+.scroll.open{
 
-max-height:400px;
+transform:scaleY(1);
 
 }
