@@ -56,3 +56,18 @@ spread:120
 alert("Thank you!");
 
 }
+function submitSign(){
+
+if(signaturePad.isEmpty()){
+alert("Please sign before accepting invitation");
+return;
+}
+
+let params = new URLSearchParams(window.location.search);
+let id = params.get("id");
+
+localStorage.setItem("attendance_"+id,"present");
+
+alert("Attendance recorded");
+
+}
