@@ -2,21 +2,19 @@ body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
 
-background:linear-gradient(135deg,
-#5f0a87,
-#7b2cbf,
-#9d4edd,
-#ff4d6d,
-#ff758f);
-
+background:linear-gradient(135deg,#5f0a87,#7b2cbf,#9d4edd,#ff4d6d,#ff758f);
 background-size:400% 400%;
 animation:bgMove 12s ease infinite;
 
 min-height:100vh;
 text-align:center;
 color:white;
+
+position:relative;
+overflow-x:hidden;
 }
-/* stars layer */
+
+/* moving stars background */
 
 body::before{
 content:"";
@@ -27,17 +25,19 @@ width:100%;
 height:100%;
 
 background-image:
-radial-gradient(white 1px, transparent 1px),
-radial-gradient(white 1px, transparent 1px);
+radial-gradient(white 1px,transparent 1px);
 
-background-size:50px 50px,100px 100px;
+background-size:60px 60px;
 
 opacity:0.4;
 
 animation:starsMove 120s linear infinite;
+
+z-index:-2;
+pointer-events:none;
 }
 
-/* purple nebula glow */
+/* purple glow */
 
 body::after{
 content:"";
@@ -48,56 +48,27 @@ width:100%;
 height:100%;
 
 background:
-radial-gradient(circle at 20% 30%,rgba(140,0,255,0.4),transparent),
-radial-gradient(circle at 80% 20%,rgba(120,0,255,0.4),transparent),
-radial-gradient(circle at 50% 80%,rgba(180,0,255,0.3),transparent);
+radial-gradient(circle at 20% 30%,rgba(140,0,255,0.35),transparent),
+radial-gradient(circle at 80% 20%,rgba(120,0,255,0.35),transparent),
+radial-gradient(circle at 50% 80%,rgba(180,0,255,0.25),transparent);
 
-mix-blend-mode:screen;
+z-index:-1;
+pointer-events:none;
 }
+
+/* background animations */
 
 @keyframes starsMove{
-from{
-transform:translateY(0);
-}
-to{
-transform:translateY(-2000px);
-}
-}
-/* gold particles background */
-
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background-image:radial-gradient(circle,#ffd700 1px,transparent 1px);
-background-size:40px 40px;
-opacity:0.15;
-animation:particles 30s linear infinite;
-z-index:-1;
+from{transform:translateY(0)}
+to{transform:translateY(-2000px)}
 }
 
-@keyframes particles{
-0%{transform:translateY(0)}
-100%{transform:translateY(-1000px)}
-}
 @keyframes bgMove{
-
-0%{
-background-position:0% 50%;
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
-
-}
 /* invitation card */
 
 .card{
@@ -106,15 +77,20 @@ margin:auto;
 margin-top:60px;
 width:450px;
 padding:40px;
+
 border-radius:20px;
-  
- background:rgba(255,255,255,0.08); backdrop-filter:blur(15px);
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
 
 border:1px solid rgba(255,255,255,0.25);
-backdrop-filter:blur(20px);
-  
+
 box-shadow:0 15px 40px rgba(0,0,0,0.5);
+
 text-align:center;
+
+position:relative;
+z-index:5;
 }
 
 /* title */
@@ -131,7 +107,6 @@ background:linear-gradient(45deg,#ffd700,#ffae00);
 /* teacher name */
 
 #teacher{
-
 font-size:34px;
 margin:20px 0;
 font-weight:bold;
@@ -145,7 +120,6 @@ text-shadow:
 0 0 20px rgba(255,215,0,0.6);
 
 letter-spacing:1px;
-
 }
 
 /* signature */
@@ -154,6 +128,7 @@ canvas{
 background:white;
 border-radius:10px;
 margin-top:15px;
+
 box-shadow:0 0 15px rgba(255,215,0,0.6);
 }
 
@@ -162,6 +137,7 @@ box-shadow:0 0 15px rgba(255,215,0,0.6);
 button{
 padding:12px 22px;
 margin:10px;
+
 border:none;
 border-radius:25px;
 
@@ -171,6 +147,7 @@ color:black;
 font-weight:bold;
 
 cursor:pointer;
+
 transition:0.3s;
 }
 
@@ -184,7 +161,9 @@ box-shadow:0 0 15px gold;
 .stalls{
 margin-top:20px;
 font-size:18px;
+
 white-space:nowrap;
+
 animation:moveStalls 12s linear infinite;
 }
 
@@ -206,7 +185,9 @@ margin-top:10px;
 background:rgba(255,255,255,0.2);
 padding:10px;
 border-radius:8px;
+
 cursor:pointer;
+
 transition:0.3s;
 }
 
