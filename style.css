@@ -2,15 +2,20 @@ body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
 
-background:
-radial-gradient(ellipse at bottom,#1b0033 0%,#000000 100%);
+background:linear-gradient(135deg,
+#5f0a87,
+#7b2cbf,
+#9d4edd,
+#ff4d6d,
+#ff758f);
+
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
 
 min-height:100vh;
-color:white;
 text-align:center;
-overflow:hidden;
+color:white;
 }
-
 /* stars layer */
 
 body::before{
@@ -78,7 +83,21 @@ z-index:-1;
 0%{transform:translateY(0)}
 100%{transform:translateY(-1000px)}
 }
+@keyframes bgMove{
 
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
 /* invitation card */
 
 .card{
@@ -90,6 +109,9 @@ padding:40px;
 border-radius:20px;
   
  background:rgba(255,255,255,0.08); backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,0.25);
+backdrop-filter:blur(20px);
   
 box-shadow:0 15px 40px rgba(0,0,0,0.5);
 text-align:center;
@@ -109,11 +131,21 @@ background:linear-gradient(45deg,#ffd700,#ffae00);
 /* teacher name */
 
 #teacher{
-font-size:30px;
+
+font-size:34px;
 margin:20px 0;
-color:#ffd700;
 font-weight:bold;
-text-shadow:0 0 10px gold;
+
+background:linear-gradient(45deg,#ffd700,#ffea00,#ffffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+text-shadow:
+0 0 10px rgba(255,215,0,0.8),
+0 0 20px rgba(255,215,0,0.6);
+
+letter-spacing:1px;
+
 }
 
 /* signature */
