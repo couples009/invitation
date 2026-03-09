@@ -2,15 +2,43 @@ body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
 
-background:
-radial-gradient(circle at 20% 30%,#7209b7,transparent),
-radial-gradient(circle at 80% 20%,#560bad,transparent),
-radial-gradient(circle at 50% 80%,#3a0ca3,transparent),
-#000;
+background:linear-gradient(135deg,#1a0033,#3a0ca3,#7209b7);
 
 min-height:100vh;
 text-align:center;
 color:white;
+overflow:hidden;
+}
+
+/* stars */
+
+body::before{
+
+content:"";
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background-image:
+radial-gradient(white 1px,transparent 1px);
+
+background-size:50px 50px;
+
+opacity:0.4;
+
+animation:stars 60s linear infinite;
+
+}
+
+@keyframes stars{
+
+0%{transform:translateY(0)}
+100%{transform:translateY(-1000px)}
+
 }
 
 /* gold particles background */
