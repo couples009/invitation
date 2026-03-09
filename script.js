@@ -23,10 +23,7 @@ cd.innerHTML = days + " days left for the event";
 
 },1000);
 
-// confetti on load
-confetti({
-particleCount:120,
-spread:100
+
 });
 
 // signature pad
@@ -57,10 +54,7 @@ fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=
 // attendance save
 localStorage.setItem("attendance_"+id,"present");
 
-confetti({
-particleCount:200,
-spread:120
-});
+
 
 alert("Thank you! Attendance recorded.");
 
