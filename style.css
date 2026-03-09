@@ -1,7 +1,7 @@
 body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#1f1c2c,#928dab);
+background:linear-gradient(135deg,#2b1055,#7597de);
 height:100vh;
 display:flex;
 align-items:center;
@@ -9,31 +9,40 @@ justify-content:center;
 color:white;
 }
 
-/* card */
+/* invitation card */
 
 .card{
 
-width:420px;
+width:450px;
 padding:40px;
 border-radius:20px;
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(15px);
-box-shadow:0 10px 40px rgba(0,0,0,0.4);
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
 text-align:center;
 animation:fadeIn 1.5s ease;
 
 }
 
-/* title */
+/* event title */
 
 h1{
 
 font-size:44px;
 letter-spacing:3px;
-margin-bottom:10px;
-background:linear-gradient(45deg,#ffd700,#ff9a00);
+margin-bottom:15px;
+background:linear-gradient(45deg,#ffd700,#ffae00);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+
+}
+
+/* invitation line */
+
+.invite-text{
+
+font-size:18px;
+opacity:0.9;
 
 }
 
@@ -41,10 +50,12 @@ background:linear-gradient(45deg,#ffd700,#ff9a00);
 
 #teacher{
 
-font-size:22px;
-margin-bottom:20px;
+margin-top:15px;
+font-size:30px;
 font-weight:bold;
-color:#ffe082;
+color:#ffd700;
+letter-spacing:1px;
+text-shadow:0 0 10px rgba(255,215,0,0.8);
 
 }
 
@@ -52,9 +63,15 @@ color:#ffe082;
 
 .event{
 
+margin-top:20px;
 font-size:22px;
-margin-top:10px;
-margin-bottom:10px;
+font-weight:bold;
+
+}
+
+.details{
+
+opacity:0.9;
 
 }
 
