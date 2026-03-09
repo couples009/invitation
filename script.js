@@ -65,11 +65,12 @@ function openInvite(){
 
 document.querySelector(".envelope").style.display="none";
 
-let card = document.getElementById("inviteCard");
-card.style.display="block";
+document.getElementById("inviteCard").style.display="block";
 
-setTimeout(()=>{
-card.classList.add("open");
-},200);
+setTimeout(function(){
+
+document.getElementById("scrollLetter").classList.add("open");
+
+},300);
 
 }
