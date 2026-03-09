@@ -2,25 +2,27 @@ body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
 background:linear-gradient(135deg,#1a0f3c,#5c6bc0);
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
+min-height:100vh;
+text-align:center;
 color:white;
-overflow:hidden;
+position:relative;
+overflow-x:hidden;
 }
 
-/* gold particle background */
+/* gold particles background */
 
-body:before{
+body::before{
 content:"";
-position:absolute;
+position:fixed;
+top:0;
+left:0;
 width:100%;
 height:100%;
 background-image:radial-gradient(circle,#ffd700 1px,transparent 1px);
 background-size:40px 40px;
-opacity:0.2;
-animation:particles 25s linear infinite;
+opacity:0.15;
+animation:particles 30s linear infinite;
+z-index:-1;
 }
 
 @keyframes particles{
@@ -31,20 +33,18 @@ animation:particles 25s linear infinite;
 /* invitation card */
 
 .card{
-width:460px;
+display:none;
+margin:auto;
+margin-top:60px;
+width:450px;
 padding:40px;
-border-radius:22px;
+border-radius:20px;
 
 background:rgba(255,255,255,0.08);
-backdrop-filter:blur(18px);
+backdrop-filter:blur(15px);
 
-box-shadow:
-0 20px 60px rgba(0,0,0,0.6),
-inset 0 0 20px rgba(255,215,0,0.2);
-
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
 text-align:center;
-animation:fadeIn 1.4s ease;
-border:1px solid rgba(255,215,0,0.3);
 }
 
 /* title */
@@ -52,64 +52,38 @@ border:1px solid rgba(255,215,0,0.3);
 h1{
 font-size:44px;
 letter-spacing:3px;
-margin-bottom:15px;
 
 background:linear-gradient(45deg,#ffd700,#ffae00);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-/* teacher name luxury */
+/* teacher name */
 
 #teacher{
-
-margin-top:15px;
-font-size:32px;
-font-weight:bold;
-
+font-size:30px;
+margin:20px 0;
 color:#ffd700;
-
-text-shadow:
-0 0 10px #ffd700,
-0 0 20px #ffae00,
-0 0 30px rgba(255,215,0,0.8);
-
-letter-spacing:1px;
-}
-
-/* event text */
-
-.event{
-margin-top:20px;
-font-size:22px;
 font-weight:bold;
-}
-
-.details{
-opacity:0.9;
+text-shadow:0 0 10px gold;
 }
 
 /* signature */
 
 canvas{
 background:white;
-border-radius:12px;
+border-radius:10px;
 margin-top:15px;
-
-box-shadow:
-0 0 15px rgba(255,215,0,0.7),
-0 5px 15px rgba(0,0,0,0.3);
+box-shadow:0 0 15px rgba(255,215,0,0.6);
 }
 
 /* buttons */
 
 button{
-
 padding:12px 22px;
 margin:10px;
-
 border:none;
-border-radius:30px;
+border-radius:25px;
 
 background:linear-gradient(45deg,#ffd700,#ffb700);
 
@@ -117,12 +91,10 @@ color:black;
 font-weight:bold;
 
 cursor:pointer;
-
 transition:0.3s;
 }
 
 button:hover{
-
 transform:scale(1.08);
 box-shadow:0 0 15px gold;
 }
@@ -137,10 +109,8 @@ animation:moveStalls 12s linear infinite;
 }
 
 @keyframes moveStalls{
-
 0%{transform:translateX(100%)}
 100%{transform:translateX(-100%)}
-
 }
 
 /* stall map */
@@ -153,34 +123,14 @@ margin-top:10px;
 }
 
 .map div{
-
 background:rgba(255,255,255,0.2);
 padding:10px;
 border-radius:8px;
-
-transition:0.3s;
 cursor:pointer;
+transition:0.3s;
 }
 
 .map div:hover{
-
 background:rgba(255,215,0,0.3);
 transform:scale(1.05);
-
-}
-
-/* fade animation */
-
-@keyframes fadeIn{
-
-from{
-opacity:0;
-transform:translateY(40px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
 }
