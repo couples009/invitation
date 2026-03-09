@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<h2 id="teacher"></h2>
+
 <head>
 
 <meta charset="UTF-8">
@@ -11,30 +11,110 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 
+<style>
+
+.envelope{
+width:200px;
+height:120px;
+background:#e74c3c;
+margin:auto;
+margin-top:120px;
+position:relative;
+cursor:pointer;
+border-radius:8px;
+animation:float 2s infinite ease-in-out;
+}
+
+.envelope:before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:0;
+height:0;
+border-left:100px solid transparent;
+border-right:100px solid transparent;
+border-bottom:60px solid #c0392b;
+}
+
+.card{
+display:none;
+margin:auto;
+margin-top:60px;
+width:450px;
+padding:40px;
+border-radius:20px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
+text-align:center;
+color:white;
+}
+
+h1{
+font-size:44px;
+letter-spacing:3px;
+background:linear-gradient(45deg,#ffd700,#ffae00);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+#teacher{
+font-size:32px;
+margin:20px 0;
+color:#ffd700;
+text-shadow:0 0 10px gold;
+}
+
+button{
+padding:10px 18px;
+margin:10px;
+border:none;
+border-radius:8px;
+background:linear-gradient(45deg,#ff512f,#dd2476);
+color:white;
+cursor:pointer;
+}
+
+canvas{
+background:white;
+border-radius:10px;
+}
+
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#1f1c2c,#928dab);
+height:100vh;
+text-align:center;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+}
+
+</style>
+
 </head>
 
 <body>
 
-<audio autoplay loop>
-<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_2b7a0c3f43.mp3">
-</audio>
+<div class="envelope" onclick="openInvite()"></div>
 
-<div class="card">
+<div class="card" id="inviteCard">
 
 <h1>BAZAAR-O-NOMICS</h1>
 
-<div id="teacher"></div>
+<p>You are cordially invited</p>
 
-<p>You are cordially invited to the grand student marketplace event.</p>
+<h2 id="teacher"></h2>
 
-<div class="event">
-Invitation for Bazaar-O-Nomics
-</div>
+<p>Invitation for Bazaar-O-Nomics</p>
 
 <p>Date: 15 April 2026</p>
 <p>Venue: College Campus</p>
-
-<div id="countdown"></div>
 
 <h3>E-Signature</h3>
 
@@ -47,12 +127,25 @@ Invitation for Bazaar-O-Nomics
 
 </div>
 
-<div class="stalls">
-🍔 🧁 👕 🎨 📚 🛍 🍹 🍿
-</div>
-
 <script src="teachers.js"></script>
 <script src="script.js"></script>
-  
+
+<script>
+
+function openInvite(){
+
+document.querySelector(".envelope").style.display="none";
+document.getElementById("inviteCard").style.display="block";
+
+confetti({
+particleCount:150,
+spread:100
+});
+
+}
+
+</script>
+
 </body>
+
 </html>
