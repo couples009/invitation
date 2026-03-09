@@ -1,6 +1,6 @@
 const teachers = {
 
-t1: "Ikhra Khan",
+t1: "Ikra Khan",
 t2: "Ayush",
 t3: "Bharti",
 t4: "Dr Sharma",
