@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>Bazaar-O-Nomics Invitation</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+<style>
+
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#1d2671,#c33764);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+/* invitation card */
+
+.card{
+
+margin:80px auto;
+width:420px;
+background:rgba(255,255,255,0.1);
+padding:40px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+animation:fade 2s;
+
+}
+
+h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+#teacher{
+font-size:22px;
+margin-bottom:20px;
+}
+
+.event{
+font-size:28px;
+font-weight:bold;
+letter-spacing:2px;
+margin-top:10px;
+}
+
+/* stalls animation */
+
+.stalls{
+
+display:flex;
+justify-content:space-around;
+font-size:35px;
+margin-top:40px;
+animation:move 12s linear infinite;
+
+}
+
+/* signature */
+
+canvas{
+
+background:white;
+border-radius:10px;
+margin-top:15px;
+
+}
+
+button{
+
+padding:12px 20px;
+border:none;
+border-radius:8px;
+margin:10px;
+font-size:15px;
+cursor:pointer;
+
+}
+
+/* countdown */
+
+#countdown{
+
+font-size:20px;
+margin-top:15px;
+
+}
+
+/* animations */
+
+@keyframes move{
+
+0%{transform:translateX(-100%)}
+100%{transform:translateX(100%)}
+
+}
+
+@keyframes fade{
+
+from{opacity:0; transform:scale(0.9)}
+to{opacity:1; transform:scale(1)}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_2b7a0c3f43.mp3" type="audio/mp3">
+</audio>
+
+<div class="card">
+
+<h1>BAZAAR-O-NOMICS</h1>
+
+<div id="teacher"></div>
+
+<p>You are cordially invited to our student marketplace event.</p>
+
+<div class="event">
+Invitation for Bazaar-O-Nomics
+</div>
+
+<p>Date: 15 April 2026</p>
+<p>Venue: College Campus</p>
+
+<div id="countdown"></div>
+
+<h3>E-Signature</h3>
+
+<canvas id="signature" width="300" height="150"></canvas>
+
+<br>
+
+<button onclick="clearSign()">Clear</button>
+<button onclick="submitSign()">Accept Invitation</button>
+
+</div>
+
+<div class="stalls">
+🍔 🧁 👕 🎨 📚 🛍 🍹 🍿
+</div>
+
+<script>
+
+/* teacher name from QR */
+
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+
+if(name){
+
+document.getElementById("teacher").innerHTML =
+"Respected " + name;
+
+}
+
+/* countdown */
+
+var eventDate = new Date("Apr 15, 2026 10:00:00").getTime();
+
+setInterval(function(){
+
+var now = new Date().getTime();
+var distance = eventDate - now;
+
+var days = Math.floor(distance / (1000*60*60*24));
+var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+document.getElementById("countdown").innerHTML =
+"Event starts in " + days + " days " + hours + " hours";
+
+},1000);
+
+/* confetti */
+
+confetti({
+particleCount:120,
+spread:100
+});
+
+/* signature */
+
+const canvas = document.getElementById("signature");
+const signaturePad = new SignaturePad(canvas);
+
+function clearSign(){
+
+signaturePad.clear();
+
+}
+
+function submitSign(){
+
+if(signaturePad.isEmpty()){
+
+alert("Please sign before accepting invitation");
+
+return;
+
+}
+
+confetti({
+particleCount:200,
+spread:120
+});
+
+alert("Thank you for accepting the invitation!");
+
+}
+
+</script>
+
+</body>
+
+</html>
