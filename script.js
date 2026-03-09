@@ -24,9 +24,14 @@ cd.innerHTML = days + " days left for the event";
 },1000);
 
 // signature pad
-const canvas = document.getElementById("signature");
-const signaturePad = new SignaturePad(canvas);
+let signaturePad;
 
+window.onload = function(){
+
+const canvas = document.getElementById("signature");
+signaturePad = new SignaturePad(canvas);
+
+}
 function clearSign(){
 signaturePad.clear();
 }
