@@ -138,5 +138,20 @@ to{
 opacity:1;
 transform:translateY(0);
 }
+.map{
 
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:10px;
+
+}
+
+.map div{
+
+background:rgba(255,255,255,0.2);
+padding:10px;
+border-radius:8px;
+
+}
 }
