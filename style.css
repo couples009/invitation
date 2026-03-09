@@ -107,7 +107,24 @@ button:hover{
 transform:scale(1.05);
 
 }
+.stalls{
+margin-top:20px;
+font-size:18px;
+white-space:nowrap;
+animation:moveStalls 12s linear infinite;
+}
 
+@keyframes moveStalls{
+
+0%{
+transform:translateX(100%);
+}
+
+100%{
+transform:translateX(-100%);
+}
+
+}
 /* animation */
 
 @keyframes fadeIn{
