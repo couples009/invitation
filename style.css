@@ -1,12 +1,16 @@
 body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#1a0f3c,#5c6bc0);
+
+background:
+radial-gradient(circle at 20% 30%,#7209b7,transparent),
+radial-gradient(circle at 80% 20%,#560bad,transparent),
+radial-gradient(circle at 50% 80%,#3a0ca3,transparent),
+#000;
+
 min-height:100vh;
 text-align:center;
 color:white;
-position:relative;
-overflow-x:hidden;
 }
 
 /* gold particles background */
