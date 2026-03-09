@@ -1,10 +1,11 @@
 const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
 
-if(name){
+const id = params.get("id");
+
+if(id && teachers[id]){
 
 document.getElementById("teacher").innerHTML =
-"Respected " + name;
+"Respected " + teachers[id];
 
 }
 
@@ -16,10 +17,9 @@ var now = new Date().getTime();
 var distance = eventDate - now;
 
 var days = Math.floor(distance / (1000*60*60*24));
-var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 
 document.getElementById("countdown").innerHTML =
-"Event starts in " + days + " days " + hours + " hours";
+days + " days left for the event";
 
 },1000);
 
@@ -29,6 +29,7 @@ spread:100
 });
 
 const canvas = document.getElementById("signature");
+
 const signaturePad = new SignaturePad(canvas);
 
 function clearSign(){
@@ -41,7 +42,7 @@ function submitSign(){
 
 if(signaturePad.isEmpty()){
 
-alert("Please sign before accepting invitation");
+alert("Please sign first");
 
 return;
 
@@ -52,6 +53,6 @@ particleCount:200,
 spread:120
 });
 
-alert("Thank you for accepting the invitation!");
+alert("Thank you!");
 
 }
