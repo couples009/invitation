@@ -41,11 +41,24 @@ signaturePad.clear();
 function submitSign(){
 
 if(signaturePad.isEmpty()){
-
-alert("Please sign first");
-
+alert("Please sign before accepting invitation");
 return;
+}
 
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+const name = teachers[id];
+
+const token = "YOUR_BOT_TOKEN";
+const chat_id = "5083324379";
+
+const message = name + " has accepted the Bazaar-O-Nomics invitation.";
+
+fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`);
+
+alert("Thank you for accepting the invitation!");
+
+}
 }
 
 confetti({
