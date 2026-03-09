@@ -1,0 +1,85 @@
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#1d2671,#c33764);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.card{
+
+margin:80px auto;
+width:420px;
+background:rgba(255,255,255,0.1);
+padding:40px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+animation:fade 2s;
+
+}
+
+h1{
+font-size:48px;
+}
+
+#teacher{
+font-size:22px;
+margin-bottom:15px;
+}
+
+.event{
+font-size:26px;
+font-weight:bold;
+letter-spacing:2px;
+}
+
+.stalls{
+
+display:flex;
+justify-content:space-around;
+font-size:35px;
+margin-top:40px;
+animation:move 12s linear infinite;
+
+}
+
+canvas{
+
+background:white;
+border-radius:10px;
+margin-top:15px;
+
+}
+
+button{
+
+padding:12px 20px;
+border:none;
+border-radius:8px;
+margin:10px;
+font-size:15px;
+cursor:pointer;
+
+}
+
+#countdown{
+
+font-size:20px;
+margin-top:15px;
+
+}
+
+@keyframes move{
+
+0%{transform:translateX(-100%)}
+100%{transform:translateX(100%)}
+
+}
+
+@keyframes fade{
+
+from{opacity:0; transform:scale(0.9)}
+to{opacity:1; transform:scale(1)}
+
+}
