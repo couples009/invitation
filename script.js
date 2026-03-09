@@ -1,14 +1,12 @@
 const params = new URLSearchParams(window.location.search);
-
 const id = params.get("id");
 
 if(id && teachers[id]){
-
 document.getElementById("teacher").innerText =
 "Respected " + teachers[id];
-
 }
 
+// countdown
 var eventDate = new Date("Apr 15, 2026 10:00:00").getTime();
 
 setInterval(function(){
@@ -18,24 +16,25 @@ var distance = eventDate - now;
 
 var days = Math.floor(distance / (1000*60*60*24));
 
-document.getElementById("countdown").innerHTML =
-days + " days left for the event";
+let cd = document.getElementById("countdown");
+if(cd){
+cd.innerHTML = days + " days left for the event";
+}
 
 },1000);
 
+// confetti on load
 confetti({
 particleCount:120,
 spread:100
 });
 
+// signature pad
 const canvas = document.getElementById("signature");
-
 const signaturePad = new SignaturePad(canvas);
 
 function clearSign(){
-
 signaturePad.clear();
-
 }
 
 function submitSign(){
@@ -45,10 +44,9 @@ alert("Please sign before accepting invitation");
 return;
 }
 
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
 const name = teachers[id];
 
+// telegram
 const token = "8658392704:AAGPui4abxdTL1HjNdmJxJhTVLT6Um3Og-Y";
 const chat_id = "5083324379";
 
@@ -56,31 +54,14 @@ const message = name + " has accepted the Bazaar-O-Nomics invitation.";
 
 fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`);
 
-alert("Thank you for accepting the invitation!");
-
-}
-}
+// attendance save
+localStorage.setItem("attendance_"+id,"present");
 
 confetti({
 particleCount:200,
 spread:120
 });
 
-alert("Thank you!");
-
-}
-function submitSign(){
-
-if(signaturePad.isEmpty()){
-alert("Please sign before accepting invitation");
-return;
-}
-
-let params = new URLSearchParams(window.location.search);
-let id = params.get("id");
-
-localStorage.setItem("attendance_"+id,"present");
-
-alert("Attendance recorded");
+alert("Thank you! Attendance recorded.");
 
 }
