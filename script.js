@@ -4,7 +4,7 @@ const id = params.get("id");
 
 if(id && teachers[id]){
 
-document.getElementById("teacher").innerHTML =
+document.getElementById("teacher").innerText =
 "Respected " + teachers[id];
 
 }
