@@ -49,7 +49,7 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 const name = teachers[id];
 
-const token = "YOUR_BOT_TOKEN";
+const token = "8658392704:AAGPui4abxdTL1HjNdmJxJhTVLT6Um3Og-Y";
 const chat_id = "5083324379";
 
 const message = name + " has accepted the Bazaar-O-Nomics invitation.";
