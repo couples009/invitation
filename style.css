@@ -126,7 +126,7 @@ border-bottom:65px solid #c0392b;
 /* invitation card */
 
 .card{
-display:none;
+display:block;
 margin:auto;
 margin-top:60px;
 width:450px;
