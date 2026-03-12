@@ -1,278 +1,162 @@
-html, body, #app{
-width:100%;
-height:100%;
+body,html{
 margin:0;
+padding:0;
+font-family:Segoe UI;
+height:100%;
+overflow-x:hidden;
+color:white;
+text-align:center;
 }
+
+/* butterflies background */
 
 #app canvas{
 position:fixed;
 top:0;
 left:0;
-z-index:-1;
-}
-body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-
-background:linear-gradient(135deg,#5f0a87,#7b2cbf,#9d4edd,#ff4d6d,#ff758f);
-background-size:400% 400%;
-animation:bgMove 12s ease infinite;
-
-min-height:100vh;
-text-align:center;
-color:white;
-
-position:relative;
-overflow-x:hidden;
-}
-
-/* moving stars background */
-
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
-
-background-image:radial-gradient(white 1px,transparent 1px);
-background-size:60px 60px;
-
-opacity:0.4;
-
-animation:starsMove 120s linear infinite;
-
-z-index:-2;
-pointer-events:none;
-}
-
-/* purple glow */
-
-body::after{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-
-background:
-radial-gradient(circle at 20% 30%,rgba(140,0,255,0.35),transparent),
-radial-gradient(circle at 80% 20%,rgba(120,0,255,0.35),transparent),
-radial-gradient(circle at 50% 80%,rgba(180,0,255,0.25),transparent);
-
 z-index:-1;
-pointer-events:none;
-}
-
-/* animations */
-
-@keyframes starsMove{
-from{transform:translateY(0)}
-to{transform:translateY(-2000px)}
-}
-
-@keyframes bgMove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
-}
-
-/* ENVELOPE */
-
-.envelope{
-width:220px;
-height:130px;
-background:#e74c3c;
-
-margin:140px auto;
-
-position:relative;
-
-border-radius:10px;
-
-cursor:pointer;
-
-box-shadow:0 15px 40px rgba(0,0,0,0.5);
-
-animation:float 2s infinite ease-in-out;
-
-z-index:10;
-}
-
-.envelope:before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-
-width:0;
-height:0;
-
-border-left:110px solid transparent;
-border-right:110px solid transparent;
-border-bottom:65px solid #c0392b;
-}
-
-/* floating animation */
-
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-100%{transform:translateY(0)}
 }
 
 /* invitation card */
 
 .card{
-display:block;
+
+width:90%;
+max-width:420px;
+
 margin:auto;
-margin-top:120px;
-width:450px;
-padding:40px;
+margin-top:60px;
+
+padding:30px;
+
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(20px);
 
 border-radius:20px;
 
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(255,255,255,0.25);
-
 box-shadow:0 15px 40px rgba(0,0,0,0.5);
-
-text-align:center;
-
-position:relative;
-z-index:5;
 }
 
 /* title */
 
 h1{
-font-size:44px;
-letter-spacing:3px;
+
+font-size:38px;
 
 background:linear-gradient(45deg,#ffd700,#ffae00);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+
+margin-bottom:10px;
+
+}
+
+/* subtitle */
+
+.subtitle{
+opacity:0.8;
 }
 
 /* teacher name */
 
 #teacher{
-font-size:34px;
+
+font-size:28px;
+margin:15px 0;
+
+color:#ffd700;
+
+text-shadow:0 0 10px gold;
+
+}
+
+/* scroll letter */
+
+.scroll{
+
+background:#fff8dc;
+color:#333;
+
+padding:20px;
+
+border-radius:10px;
+
 margin:20px 0;
-font-weight:bold;
 
-background:linear-gradient(45deg,#ffd700,#ffea00,#ffffff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+animation:openScroll 1s ease;
 
-text-shadow:
-0 0 10px rgba(255,215,0,0.8),
-0 0 20px rgba(255,215,0,0.6);
+}
 
-letter-spacing:1px;
+@keyframes openScroll{
+
+0%{
+transform:scaleY(0);
+transform-origin:top;
+}
+
+100%{
+transform:scaleY(1);
+}
+
 }
 
 /* signature */
 
 canvas{
-background:white;
-border-radius:10px;
-margin-top:15px;
 
-box-shadow:0 0 15px rgba(255,215,0,0.6);
+width:100%;
+height:150px;
+
+background:white;
+
+border-radius:10px;
+
 }
 
 /* buttons */
 
+.buttons{
+margin-top:15px;
+}
+
 button{
-padding:12px 22px;
-margin:10px;
+
+padding:12px 20px;
 
 border:none;
-border-radius:25px;
 
-background:linear-gradient(45deg,#ffd700,#ffb700);
+border-radius:20px;
 
-color:black;
-font-weight:bold;
+margin:5px;
+
+background:linear-gradient(45deg,#ff512f,#dd2476);
+
+color:white;
 
 cursor:pointer;
 
-transition:0.3s;
+font-weight:bold;
+
 }
 
 button:hover{
-transform:scale(1.08);
-box-shadow:0 0 15px gold;
-}
 
-/* moving stalls */
-
-.stalls{
-margin-top:20px;
-font-size:18px;
-
-white-space:nowrap;
-
-animation:moveStalls 12s linear infinite;
-}
-
-@keyframes moveStalls{
-0%{transform:translateX(100%)}
-100%{transform:translateX(-100%)}
-}
-
-/* stall map */
-
-.map{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:10px;
-}
-
-.map div{
-background:rgba(255,255,255,0.2);
-padding:10px;
-border-radius:8px;
-
-cursor:pointer;
-
-transition:0.3s;
-}
-
-.map div:hover{
-background:rgba(255,215,0,0.3);
 transform:scale(1.05);
-}
-.scroll{
-
-background:#fff8dc;
-
-color:#333;
-
-padding:25px;
-
-border-radius:10px;
-
-margin-top:20px;
-
-transform:scaleY(0);
-
-transform-origin:top;
-
-transition:transform 0.8s ease;
 
 }
 
-/* scroll open */
+/* mobile */
 
-.scroll.open{
+@media(max-width:600px){
 
-transform:scaleY(1);
+h1{
+font-size:30px;
+}
+
+#teacher{
+font-size:22px;
+}
 
 }
