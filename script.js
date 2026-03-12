@@ -68,11 +68,6 @@ localStorage.setItem("attendance_"+id,"present");
 alert("Thank you! Attendance recorded.");
 
 }
-function openInvite(){
-
-document.querySelector(".envelope").style.display="none";
-
-document.getElementById("inviteCard").style.display="block";
 
 setTimeout(function(){
 
