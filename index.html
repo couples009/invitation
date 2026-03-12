@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bazaar-O-Nomics Invitation</title>
 
 <link rel="stylesheet" href="style.css">
@@ -11,160 +11,39 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 
-<style>
-
-.envelope{
-width:200px;
-height:120px;
-background:#e74c3c;
-margin:auto;
-margin-top:120px;
-position:relative;
-cursor:pointer;
-border-radius:8px;
-animation:float 2s infinite ease-in-out;
-}
-
-.envelope:before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:0;
-height:0;
-border-left:100px solid transparent;
-border-right:100px solid transparent;
-border-bottom:60px solid #c0392b;
-}
-
-.card{
-display:none;
-margin:auto;
-margin-top:60px;
-width:450px;
-padding:40px;
-border-radius:20px;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(15px);
-box-shadow:0 15px 40px rgba(0,0,0,0.4);
-text-align:center;
-color:white;
-}
-
-h1{
-font-size:44px;
-letter-spacing:3px;
-background:linear-gradient(45deg,#ffd700,#ffae00);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-#teacher{
-font-size:32px;
-margin:20px 0;
-color:#ffd700;
-text-shadow:0 0 10px gold;
-}
-
-button{
-padding:10px 18px;
-margin:10px;
-border:none;
-border-radius:8px;
-background:linear-gradient(45deg,#ff512f,#dd2476);
-color:white;
-cursor:pointer;
-}
-
-canvas{
-background:white;
-border-radius:10px;
-}
-
-body{
-margin:0;
-font-family:Segoe UI;
-background:linear-gradient(135deg,#1f1c2c,#928dab);
-height:100vh;
-text-align:center;
-}
-
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-100%{transform:translateY(0)}
-}
-
-</style>
-
 </head>
 
 <body>
+
 <div id="app"></div>
 
-<div class="card" id="inviteCard">
+<div class="card">
 
 <h1>BAZAAR-O-NOMICS</h1>
-<p id="countdown"></p>
-<p>You are cordially invited</p>
 
-<h2 id="teacher"></h2>
+<p class="subtitle">You are cordially invited</p>
 
-<p>Invitation for Bazaar-O-Nomics</p>
+<h2 id="teacher">Respected Guest</h2>
 
-<p>Date: 15 April 2026</p>
-<p>Venue: College Campus</p>
+<div class="scroll">
+
+<p>Date : 15 April 2026</p>
+<p>Venue : College Campus</p>
+
+</div>
 
 <h3>E-Signature</h3>
 
-<canvas id="signature" width="300" height="150"></canvas>
-<div class="stalls">
-🍔 Food Stall &nbsp;&nbsp; 🎨 Art Stall &nbsp;&nbsp; 👕 Fashion Stall &nbsp;&nbsp; 📚 Book Stall
-</div>
-  <h3>Event Stall Map</h3>
+<canvas id="signature"></canvas>
 
-<div class="map">
-
-<div>🍔 Food Zone</div>
-<div>🎨 Art Zone</div>
-<div>👕 Fashion Zone</div>
-<div>📚 Book Zone</div>
-<div class="scroll" id="scrollLetter">
-
-<p id="countdown"></p>
-
-<p>You are cordially invited</p>
-
-<h2 id="teacher"></h2>
-
-<p>Date: 15 April 2026</p>
-<p>Venue: College Campus</p>
-
-</div>
-</div>
-<br>
-
+<div class="buttons">
 <button onclick="clearSign()">Clear</button>
 <button onclick="submitSign()">Accept Invitation</button>
+</div>
 
 </div>
 
-<script src="teachers.js"></script>
 <script type="module" src="script.js"></script>
 
-<script>
-
-function openInvite(){
-
-document.querySelector(".envelope").style.display="none";
-document.getElementById("inviteCard").style.display="block";
-
-
-
-}
-
-</script>
-
 </body>
-
 </html>
