@@ -37,9 +37,9 @@ left:0;
 width:0;
 height:0;
 
-border-left:110px solid transparent;
-border-right:110px solid transparent;
-border-bottom:65px solid #c0392b;
+border-left:80px solid transparent;
+border-right:80px solid transparent;
+border-bottom:50px solid #c0392b;
 }
 
 /* floating animation */
@@ -61,16 +61,16 @@ margin:20px auto;
 
 padding:20px;
 
-border-radius:18px;
+border-radius:6px;
 
-background:rgba(255,255,255,0.15);
+background:transparent
 backdrop-filter:blur(1.3px);
 
 border:2px solid rgba(0,0,0,0.5);
 
 box-shadow:0 8px 25px rgba(0,0,0,0.3);
 
-z-index:5;
+z-index:10;
 }
 
 /* title */
