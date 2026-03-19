@@ -30,9 +30,7 @@ window.onload = function(){
 
 const canvas = document.getElementById("signature");
 signaturePad = new SignaturePad(canvas);
-  canvas.width = canvas.offsetWidth;
-  canvas.height = 150;
-  
+
 }
 function clearSign(){
 signaturePad.clear();
