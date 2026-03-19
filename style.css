@@ -106,14 +106,13 @@ letter-spacing:1px;
 /* signature */
 
 canvas{
-width:100%;
-max-width:320px;
-height:150px;
 background:white;
 border-radius:10px;
 margin-top:15px;
+
 box-shadow:0 0 15px rgba(255,215,0,0.6);
 }
+
 /* buttons */
 
 button{
